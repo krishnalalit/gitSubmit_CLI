@@ -25,3 +25,7 @@ apt-cache show python3
 
 apt-get install python3==3.5.1*
 ```
+
+### License ###
+
+This project operates under the GNU General Public License 3.0 (GPL-3.0). You can read more under `LICENSE.md`
