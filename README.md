@@ -10,21 +10,8 @@ This application uses Python framework and its dependencies to function.
 
 [Python Environment](https://www.python.org/downloads/) can be set up on windows by following the link. An executable file gets downloaded and a **Python IDLE** is setup on the system which is a python shell.
 
-If Python is to be installed on a Linux system, the following can be done from a terminal:
+This [link](https://bitbucket.org/gitsubmitsuite/gitsubmit_cli/wiki/Home) describes in great detail on setting up python environment.
 
-``` 
-apt-get update
-
-apt-get install python3
-```
-
-For a more specific version of Python, the following can be done:
-
-```
-apt-cache show python3
-
-apt-get install python3==3.5.1*
-```
 
 ### License ###
 
