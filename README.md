@@ -15,4 +15,5 @@ This [link](https://bitbucket.org/gitsubmitsuite/gitsubmit_cli/wiki/Home) descri
 
 ### License ###
 
-This project operates under the GNU General Public License 3.0 (GPL-3.0). You can read more under `LICENSE.md`
+This project operates under the GNU General Public License 3.0 (GPL-3.0). You can read more under 
+```LICENSE.txt```
