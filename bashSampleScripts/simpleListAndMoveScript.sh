@@ -13,4 +13,5 @@ mv $1 $2
 ### $HOSTNAME - The hostname of the machine the script is running on.
 ### $SECONDS - The number of seconds since the script was started
 
-env 
+env
+# listing of other variables which you may also refer to.
