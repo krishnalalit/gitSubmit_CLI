@@ -12,9 +12,7 @@ This application might use Python framework and its dependencies to function alo
 
 This [link](https://bitbucket.org/gitsubmitsuite/gitsubmit_cli/wiki/Home) describes in great detail on setting up python environment.
 
-The following is the environment setup for bash: 
-
-[Linux Environment](https://bitbucket.org/gitsubmitsuite/gitsubmit_cli/wiki/LUbuntu%20for%20a%20proper%20Linux%20Environment)
+The following is the environment setup for bash: [Linux Environment](https://bitbucket.org/gitsubmitsuite/gitsubmit_cli/wiki/LUbuntu%20for%20a%20proper%20Linux%20Environment)
 
 
 ### License ###
