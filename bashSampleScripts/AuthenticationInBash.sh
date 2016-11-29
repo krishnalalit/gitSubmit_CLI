@@ -16,10 +16,15 @@ found=0
 while read line; do
     found=$[found+1]
     echo -e "Found: $line"
-done < <(find "$target" -iname "*$name*" )
+done < <(find . -name '*.pub' -o -print | grep keys)
 
 if [[ "$found" == "0" ]]; then
     echo -e "No match for $name"
+    echo "We will now go ahead generate the keys required for authentication"
+    # we need to move to home folder to make the.ssh folder
+  # mkdir ~/.ssh
+    chmod 700 ~/.ssh
+    ssh-keygen -t rsa
 else
     echo -e "Total: $found elements"
 fi
