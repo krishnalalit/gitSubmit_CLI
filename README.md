@@ -6,13 +6,11 @@ This project is a part of the GitSubmit suite which helps users on Linux/Unix ba
 
 ### Application Dependencies ###
 
-This application might use Python framework and its dependencies to function along with Lua or bash to implement its functionalities.
+This application uses Python framework and its dependencies to function.
 
 [Python Environment](https://www.python.org/downloads/) can be set up on windows by following the link. An executable file gets downloaded and a **Python IDLE** is setup on the system which is a python shell.
 
 This [link](https://bitbucket.org/gitsubmitsuite/gitsubmit_cli/wiki/Home) describes in great detail on setting up python environment.
-
-The following is the environment setup for bash: [Linux Environment](https://bitbucket.org/gitsubmitsuite/gitsubmit_cli/wiki/LUbuntu%20for%20a%20proper%20Linux%20Environment)
 
 
 ### License ###
