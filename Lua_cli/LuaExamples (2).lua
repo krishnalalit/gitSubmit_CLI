@@ -1,0 +1,51 @@
+function comma_value(amount)
+  local formatted = amount
+  while true do  
+    formatted, k = string.gsub(formatted, "^(-?%d+)(%d%d%d)", '%1,%2')
+    if (k==0) then
+      break
+    end
+  end
+  return formatted
+end
+-- rounds a number to the nearest decimal places
+--
+function round(val, decimal)
+  if (decimal) then
+    return math.floor( (val * 10^decimal) + 0.5) / (10^decimal)
+  else
+    return math.floor(val+0.5)
+  end
+end
+-- given a numeric value formats output with comma to separate thousands
+-- and rounded to given decimal places
+function format_num(amount, decimal, prefix, neg_prefix)
+  local str_amount,  formatted, famount, remain
+
+  decimal = decimal or 2  
+  neg_prefix = neg_prefix or "-" 
+
+  famount = math.abs(round(amount,decimal))
+  famount = math.floor(famount)
+
+  remain = round(math.abs(amount) - famount, decimal)
+  formatted = comma_value(famount)
+  if (decimal > 0) then
+    remain = string.sub(tostring(remain),3)
+    formatted = formatted .. "." .. remain ..
+                string.rep("0", decimal - string.len(remain))
+  end
+
+        -- attach prefix string e.g '$' 
+  formatted = (prefix or "") .. formatted 
+
+        -- if value is negative then format accordingly
+  if (amount<0) then
+    if (neg_prefix=="()") then
+      formatted = "("..formatted ..")"
+    else
+      formatted = neg_prefix .. formatted 
+    end
+  end
+return formatted
+end
