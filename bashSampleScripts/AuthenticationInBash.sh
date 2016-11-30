@@ -16,7 +16,7 @@ found=0
 while read line; do
     found=$[found+1]
     echo -e "Found: $line"
-done < <(find . -name '*.pub' -o | grep keys)
+done < <(find "$target" -iname "*.pub" )
 
 if [[ "$found" == "0" ]]; then
     echo -e "No match for files with .pub extension"
