@@ -17,4 +17,4 @@ if [[ "$found" == "0" ]]; then
     echo -e "No match for $name"
 else
     echo -e "Total: $found elements"
-fi 
+fi

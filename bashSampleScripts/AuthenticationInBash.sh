@@ -11,7 +11,8 @@ if [ ! "$(ls -A $target)" ]; then
     echo -e "Directory $target is empty"
     exit 0
 fi
-
+# use file command to find public keys
+# file * | grep RSA | wc -l | countKeys
 found=0
 while read line; do
     found=$[found+1]
