@@ -6,7 +6,9 @@ echo "Please wait while we check for existing keys for authentication"
 echo
 # use file command to find public keys
 cd ~/
-found=file * | grep RSA | wc -l
+echo " The following number of keys were found: "
+file * | grep RSA | wc -l
+echo 
 if [[ "$found" == "0" ]]; then
     echo -e "Could not find any usable keys"
     echo "We will now generate the keys required for authentication"

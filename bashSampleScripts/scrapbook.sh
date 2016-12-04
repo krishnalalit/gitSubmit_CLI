@@ -1,3 +1,3 @@
 cd ~/
-ls-l | wc -l | cat > $found
+found=ls -l | wc -l 
 echo "$found"
