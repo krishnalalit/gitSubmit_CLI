@@ -4,8 +4,10 @@ echo
 echo
 echo "Please wait while we check for existing keys for authentication"
 echo
+
 # use file command to find public keys
 cd ~/
+echo " The following number of keys were found: "
 found="$(file * | grep RSA | wc -l)"
 echo
 if [[ "$found" == "0" ]]; then
@@ -16,6 +18,7 @@ if [[ "$found" == "0" ]]; then
     chmod 700 ~/.ssh
     ssh-keygen -t rsa
 else
+    echo "The following keys were found"
     file * | grep RSA
     echo -e "Total: $found keys"
     read -p "Would you like to use the existing keys for authentication (yes or no) ?" response
@@ -27,4 +30,15 @@ else
       ssh-keygen -t rsa
     fi;
 fi;
+repo="git@bitbucket.org:knklalit/authdemorepo.git"
+pathLoc="~/"
+git clone "$repo" "$pathLoc"
 echo "Authentication complete"
+
+
+
+
+#cd authdemorepo
+#echo "# My project's README" >> README.md git add README.md
+#git commit -m "Initial commit"
+#git push -u origin master
