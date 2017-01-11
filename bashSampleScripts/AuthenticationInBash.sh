@@ -20,7 +20,8 @@ else
     echo -e "Total: $found keys"
     read -p "Would you like to use the existing keys for authentication (yes or no) ?" response
     if [[ "$response" == "yes" ]]; then
-      echo " Thank you. We will proceed with authentcation using the existing keys"
+      echo " Thank you. We will now proceed with authentcation using the existing keys"
+      
     else
       mkdir ~/.ssh
       chmod 700 ~/.ssh

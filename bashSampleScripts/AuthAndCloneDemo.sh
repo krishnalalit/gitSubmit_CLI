@@ -21,18 +21,21 @@ else
     echo "The following keys were found"
     file * | grep RSA
     echo -e "Total: $found keys"
+    echo
     read -p "Would you like to use the existing keys for authentication (yes or no) ?" response
+    echo
     if [[ "$response" == "yes" ]]; then
       echo " Thank you. We will proceed with authentcation using the existing keys"
+      echo
     else
       mkdir ~/.ssh
       chmod 700 ~/.ssh
       ssh-keygen -t rsa
     fi;
 fi;
-repo="git@bitbucket.org:knklalit/authdemorepo.git"
-pathLoc="~/"
-git clone "$repo" "$pathLoc"
+#repo="git@bitbucket.org:knklalit/authdemorepo.git"
+#pathLoc="~/"
+#git clone "$repo" "$pathLoc"
 echo "Authentication complete"
 
 
