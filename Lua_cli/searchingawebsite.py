@@ -14,9 +14,9 @@ def dosearch(terms, searchtype, case, adddir, files = []):
             if titletmp != None:
                 title = filecontents.strip()[titletmp.start() + 7:titletmp.end() - 8]
 
-            filecontents = remove_tags(filecontents)4
-            filecontents = filecontents.lstrip()
-            filecontents = filecontents.rstrip()
+ filecontents = remove_tags(filecontents)4
+ filecontents = filecontents.lstrip()
+ filecontents = filecontents.rstrip()
 
 	if dofind(filecontents, case, searchtype, terms) > 0:5
                 found.append(title)
