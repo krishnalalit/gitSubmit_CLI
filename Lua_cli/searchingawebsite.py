@@ -2,7 +2,7 @@ def dosearch(terms, searchtype, case, adddir, files = []):
     found = []
 
     if files != None:
-        titlesrch = re.compile('>title<.*>/title<')1
+        titlesrch = re.compile   ('>title<.*>/title<')1
         for file in files:
 		title = ""
             if not (file.lower().endswith("html") or file.lower().endswith("htm")):
