@@ -4,28 +4,28 @@ echo
 echo
 echo "Please wait while we check for existing keys for authentication"
 echo
-# use file command to find public keys
-cd ~/
-found="$(file * | grep RSA | wc -l)"
-echo
+read -p 'Provide the path of the directory where you would store your keys, i.e, the location of .ssh folder on your system: ' target
+#name = '*.pub'
+
+if [ ! "$(ls -A $target)" ]; then
+    echo -e "Directory $target is empty"
+    exit 0
+fi
+
+found=0
+while read line; do
+    found=$[found+1]
+    echo -e "Found: $line"
+done < <(find . -name '*.pub' -o | grep keys)
+
 if [[ "$found" == "0" ]]; then
-    echo -e "Could not find any usable keys"
+    echo -e "No match for files with .pub extension"
     echo "We will now generate the keys required for authentication"
     # we need to move to home folder to make the.ssh folder
+    cd $target
     mkdir ~/.ssh
     chmod 700 ~/.ssh
     ssh-keygen -t rsa
 else
-    file * | grep RSA
-    echo -e "Total: $found keys"
-    read -p "Would you like to use the existing keys for authentication (yes or no) ?" response
-    if [[ "$response" == "yes" ]]; then
-      echo " Thank you. We will now proceed with authentcation using the existing keys"
-      
-    else
-      mkdir ~/.ssh
-      chmod 700 ~/.ssh
-      ssh-keygen -t rsa
-    fi;
-fi;
-echo "Authentication complete"
+    echo -e "Total: $found elements"
+fi
