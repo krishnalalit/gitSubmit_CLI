@@ -11,6 +11,24 @@ echo " The following number of keys were found: "
 found="$(file * | grep RSA | wc -l)"
 echo
 if [[ "$found" == "0" ]]; then
+    uname = "$(git config --global --list | wc -l)"
+
+    if[["$uname" <=2]]; then
+      read -p "Please set a username for your account" name
+      git config --global user.name "$name"
+      echo "This is the username you have entered: "
+      git config --global user.name
+      echo
+      read -p "Please enter the email address you would like to associate with this account" email
+      echo
+      git config --global user.email "$email"
+      echo "This is the email you have entered: "
+    else
+      echo
+      echo "A username had already been set. The following are the details: "
+      echo
+      git config --global --list
+    fi;  
     echo -e "Could not find any usable keys"
     echo "We will now generate the keys required for authentication"
     # we need to move to home folder to make the.ssh folder
