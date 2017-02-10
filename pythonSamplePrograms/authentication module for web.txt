@@ -1,0 +1,17 @@
+import web
+from web.contrib.auth import auth
+
+urls = (
+    '/', 'index',
+)
+app = web.application(urls, locals())
+db = web.database(dbn='mysql', db='webpy', user='scott', pw='tiger')
+settings = {}
+
+auth.init_app(app, db, **settings)
+mysession = web.session.Session(app, web.session.DiskStore('sessions'))
+auth.init_app(app, db, mysession, **settings)
+
+Useful link:
+
+https://github.com/galeo/web.py-auth
