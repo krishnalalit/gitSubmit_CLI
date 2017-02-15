@@ -51,16 +51,10 @@ else
       ssh-keygen -t rsa
     fi;
 fi;
-#repo="git@bitbucket.org:knklalit/authdemorepo.git"
-#pathLoc="~/"
-#git clone "$repo" "$pathLoc"
+#
+#
+#
 echo "Authentication complete"
 
 
-
-
-#cd authdemorepo
-#echo "# My project's README" >> README.md git add README.md
-#git commit -m "Initial commit"
-#git push -u origin master
-HouseKeeping-ErrorCorrection
+#
