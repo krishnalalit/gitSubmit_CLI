@@ -1,0 +1,12 @@
+import os
+
+subject = raw_input('Enter the name of the subject: ')
+
+if os.path.isdir('./' + subject):
+  os.system('cd ' + subject)
+else:
+  os.system('git clone git@gitlab.com:sahilnarain/' + subject )
+  os.system('cd ' + subject)
+print '#####'
+print 'Current repository (subject): ' + subject
+print os.system('git branch | grep "*"')
