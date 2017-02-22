@@ -25,12 +25,13 @@ if [[ "$found" == "0" ]]; then
     echo 'Authorising key for use with GitLab ...'
     CFG='\nHost gitlab.com\n  HostName gitlab.com\n  User git\n  IdentityFile ~/.ssh/gitLabCLIKeys'
     echo -e $CFG >> /home/ubuntu/.ssh/config
-    chmod 400 /home/ubuntu/.ssh/ssh_git
+    chmod 400 /home/ubuntu/.ssh/gitLabCLIKeys
 
     echo 'Finished configuring keys ... '
 
-    cat /home/ubuntu/.ssh/ssh_git.pub
+    cat /home/ubuntu/.ssh/gitLabCLIKeys.pub
     echo '^ Copy the key above in your GitLab settings to authorise your username'
+	# Call python script to copy the ssh key generated to server
 
 else
     read -p "Would you like to use the existing keys for authentication (yes or no) ?" response
@@ -38,6 +39,13 @@ else
         echo " Thank you. We will proceed with authentcation using the existing keys"
         echo
         # This is where the python script to clone and search would be used
+		read -p "Enter the subject your repository belongs to: " subject
+		read -p "Enter the topic of the repository to be cloned: " topic
+		result=`python python/cloning.py "$subject" "$topic"`
+		read -p "Enter the path, where you would like to clone your repository: " path
+		cd '$path'
+		git clone '$result'
+		
     else
         echo 'Generating GitLab authentication key ...'
         ssh-keygen -t rsa -b 4096 -C "$u" -P "" -f '~/.ssh/gitLabCLIKeys'
@@ -45,11 +53,11 @@ else
         echo 'Authorising key for use with GitLab ...'
         CFG='\nHost gitlab.com\n  HostName gitlab.com\n  User git\n  IdentityFile ~/.ssh/gitLabCLIKeys'
         echo -e $CFG >> /home/ubuntu/.ssh/config
-        chmod 400 /home/ubuntu/.ssh/ssh_git
+        chmod 400 /home/ubuntu/.ssh/gitLabCLIKeys
 
         echo 'Finished configuring keys ... '
 
-        cat /home/ubuntu/.ssh/ssh_git.pub
+        cat /home/ubuntu/.ssh/gitLabCLIKeys.pub
         echo '^ Copy the key above in your GitLab settings to authorise your username'
         # Call python script to copy the ssh key generated to server
 fi;
