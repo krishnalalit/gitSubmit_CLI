@@ -20,10 +20,10 @@ if [[ "$found" == "0" ]]; then
     read -s p
 
     echo 'Generating GitLab authentication key ...'
-    ssh-keygen -t rsa -b 4096 -C "$u" -P "" -f '/home/ubuntu/.ssh/ssh_git'
+    ssh-keygen -t rsa -b 4096 -C "$u" -P "" -f '~/.ssh/gitLabCLIKeys'
 
     echo 'Authorising key for use with GitLab ...'
-    CFG='\nHost gitlab.com\n  HostName gitlab.com\n  User git\n  IdentityFile /home/ubuntu/.ssh/ssh_git'
+    CFG='\nHost gitlab.com\n  HostName gitlab.com\n  User git\n  IdentityFile ~/.ssh/gitLabCLIKeys'
     echo -e $CFG >> /home/ubuntu/.ssh/config
     chmod 400 /home/ubuntu/.ssh/ssh_git
 
@@ -40,10 +40,10 @@ else
         # This is where the python script to clone and search would be used
     else
         echo 'Generating GitLab authentication key ...'
-        ssh-keygen -t rsa -b 4096 -C "$u" -P "" -f '/home/ubuntu/.ssh/ssh_git'
+        ssh-keygen -t rsa -b 4096 -C "$u" -P "" -f '~/.ssh/gitLabCLIKeys'
 
         echo 'Authorising key for use with GitLab ...'
-        CFG='\nHost gitlab.com\n  HostName gitlab.com\n  User git\n  IdentityFile /home/ubuntu/.ssh/ssh_git'
+        CFG='\nHost gitlab.com\n  HostName gitlab.com\n  User git\n  IdentityFile ~/.ssh/gitLabCLIKeys'
         echo -e $CFG >> /home/ubuntu/.ssh/config
         chmod 400 /home/ubuntu/.ssh/ssh_git
 
