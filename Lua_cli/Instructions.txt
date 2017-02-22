@@ -1,0 +1,4 @@
+Instructions:
+1. Install python-gitlab
+$ pip install --upgrade python-gitlab
+2. Source: http://python-gitlab.readthedocs.io/en/stable/api-usage.html
