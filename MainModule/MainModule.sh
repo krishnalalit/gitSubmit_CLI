@@ -32,6 +32,8 @@ if [[ "$found" == "0" ]]; then
     cat /home/ubuntu/.ssh/gitLabCLIKeys.pub
     echo '^ Copy the key above in your GitLab settings to authorise your username'
 	# Call python script to copy the ssh key generated to server
+    chmod u+x ~/gitLabCLI/copyKeyToServer.py
+    python ~/gitLabCLI/copyKeyToServer.py
 
 else
     read -p "Would you like to use the existing keys for authentication (yes or no) ?" response
@@ -39,13 +41,13 @@ else
         echo " Thank you. We will proceed with authentcation using the existing keys"
         echo
         # This is where the python script to clone and search would be used
-		read -p "Enter the subject your repository belongs to: " subject
-		read -p "Enter the topic of the repository to be cloned: " topic
-		result=`python python/cloning.py "$subject" "$topic"`
-		read -p "Enter the path, where you would like to clone your repository: " path
-		cd '$path'
-		git clone '$result'
-		
+        read -p "Enter the subject your repository belongs to: " subject
+        read -p "Enter the topic of the repository to be cloned: " topic
+        result=`python ~/gitLabCLI/cloning.py "$subject" "$topic"`
+        read -p "Enter the path, where you would like to clone your repository: " path
+        cd '$path'
+        git clone '$result'
+
     else
         echo 'Generating GitLab authentication key ...'
         ssh-keygen -t rsa -b 4096 -C "$u" -P "" -f '~/.ssh/gitLabCLIKeys'
@@ -60,4 +62,6 @@ else
         cat /home/ubuntu/.ssh/gitLabCLIKeys.pub
         echo '^ Copy the key above in your GitLab settings to authorise your username'
         # Call python script to copy the ssh key generated to server
+        chmod u+x ~/gitLabCLI/copyKeyToServer.py
+		python ~/gitLabCLI/copyKeyToServer.py
 fi;
