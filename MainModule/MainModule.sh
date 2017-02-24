@@ -62,5 +62,6 @@ else
         cat /home/ubuntu/.ssh/gitLabCLIKeys.pub
         echo '^ Copy the key above in your GitLab settings to authorise your username'
         # Call python script to copy the ssh key generated to server
-        python ~/gitLabCLI/copyKeyToServer.py
+        chmod u+x ~/gitLabCLI/copyKeyToServer.py
+		python ~/gitLabCLI/copyKeyToServer.py
 fi;
