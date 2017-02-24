@@ -44,7 +44,9 @@ else
         read -p "Enter the subject your repository belongs to: " subject
         read -p "Enter the topic of the repository to be cloned: " topic
         result=`python ~/gitLabCLI/cloning.py "$subject" "$topic"`
-        #
+        read -p "Enter the path, where you would like to clone your repository: " path
+        cd '$path'
+        git clone '$result'
 
     else
         echo 'Generating GitLab authentication key ...'
