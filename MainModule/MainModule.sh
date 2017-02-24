@@ -38,14 +38,7 @@ else
     if [[ "$response" == "yes" ]]; then
         echo " Thank you. We will proceed with authentcation using the existing keys"
         echo
-        # This is where the python script to clone and search would be used
-		read -p "Enter the subject your repository belongs to: " subject
-		read -p "Enter the topic of the repository to be cloned: " topic
-		result=`python python/cloning.py "$subject" "$topic"`
-		read -p "Enter the path, where you would like to clone your repository: " path
-		cd '$path'
-		git clone '$result'
-		
+      
     else
         echo 'Generating GitLab authentication key ...'
         ssh-keygen -t rsa -b 4096 -C "$u" -P "" -f '~/.ssh/gitLabCLIKeys'
