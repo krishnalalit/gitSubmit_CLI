@@ -7,6 +7,7 @@ echo "Welcome to GitSubmit Command Line Interface "
 
 echo "Please wait while we check for existing keys, for authentication"
       echo
+      cd /c/Users/S52572/.ssh/
       echo "The following keys were found"
       file * | grep RSA
       found="$(file * | grep RSA | wc -l)"
@@ -24,12 +25,12 @@ if [[ "$found" == "0" ]]; then
 
     echo 'Authorising key for use with GitLab ...'
     CFG='\nHost gitlab.com\n  HostName gitlab.com\n  User git\n  IdentityFile /c/Users/S525729/.ssh/gitLabCLIKeys'
-    echo -e $CFG >> ~/.ssh/config
-    chmod 400 ~/.ssh/gitLabCLIKeys
+    echo -e $CFG >>/c/Users/S525729/.ssh/config
+    chmod 400 /c/Users/S525729/.ssh/gitLabCLIKeys
 
     echo 'Finished configuring keys ... '
 
-    cat ~/.ssh/gitLabCLIKeys.pub
+    cat /c/Users/S525729/.ssh/gitLabCLIKeys.pub
     echo '^ Copy the key above in your GitLab settings to authorise your username'
 	# Call python script to copy the ssh key generated to server
     chmod u+x /c/Users/S525729/Google\ Drive/Semester-3/GDP-1/gitsubmit_cli/Tests/bashTesting/hello.py
@@ -43,10 +44,10 @@ else
         # This is where the python script to clone and search would be used
         read -p "Enter the subject your repository belongs to: " subject
         read -p "Enter the topic of the repository to be cloned: " topic
-        result=`python ~/gitLabCLI/cloning.py "$subject" "$topic"`
-        read -p "Enter the path, where you would like to clone your repository: " path
-        cd '$path'
-        git clone '$result'
+        #result=`python ~/gitLabCLI/cloning.py "$subject" "$topic"`
+        # read -p "Enter the path, where you would like to clone your repository: " path
+        cd /c/Users/S525729/cloneTest/
+        git clone git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git
 
     else
         echo 'Generating GitLab authentication key ...'
@@ -54,16 +55,15 @@ else
 
         echo 'Authorising key for use with GitLab ...'
         CFG='\nHost gitlab.com\n  HostName gitlab.com\n  User git\n  IdentityFile /c/Users/S525729/.ssh/gitLabCLIKeys'
-        echo -e $CFG >> ~/.ssh/config
-        chmod 400 ~/.ssh/
+        echo -e $CFG >> /c/Users/S525729/.ssh/config
+        chmod 400 /c/Users/S525729/.ssh/gitLabCLIKeys
 
         echo 'Finished configuring keys ... '
 
-        cat ~/.ssh/gitLabCLIKeys.pub
+        cat /c/Users/S525729/.ssh/gitLabCLIKeys.pub
         echo '^ Copy the key above in your GitLab settings to authorise your username'
         # Call python script to copy the ssh key generated to server
         chmod u+x /c/Users/S525729/Google\ Drive/Semester-3/GDP-1/gitsubmit_cli/Tests/bashTesting/hello.py
     python /c/Users/S525729/Google\ Drive/Semester-3/GDP-1/gitsubmit_cli/Tests/bashTesting/hello.py
 fi;
 fi;
-
