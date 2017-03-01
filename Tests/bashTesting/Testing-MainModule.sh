@@ -62,10 +62,8 @@ else
         cat ~/.ssh/gitLabCLIKeys.pub
         echo '^ Copy the key above in your GitLab settings to authorise your username'
         # Call python script to copy the ssh key generated to server
-        chmod u+x /c/Users/S525729/Google Drive/Semester-3/GDP-1/gitsubmit_cli/Tests/bashTesting
-/hello.py
-    python /c/Users/S525729/Google Drive/Semester-3/GDP-1/gitsubmit_cli/Tests/bashTesting
-/hello.py
+        chmod u+x /c/Users/S525729/Google\ Drive/Semester-3/GDP-1/gitsubmit_cli/Tests/bashTesting/hello.py
+    python /c/Users/S525729/Google\ Drive/Semester-3/GDP-1/gitsubmit_cli/Tests/bashTesting/hello.py
 fi;
 fi;
 
