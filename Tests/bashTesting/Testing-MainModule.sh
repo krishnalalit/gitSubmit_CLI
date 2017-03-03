@@ -1,4 +1,18 @@
 #!/bin/bash
+
+program="git"
+condition=$(which $program 2>/dev/null | grep -v "not found" | wc -l)
+if [ $condition -eq 0 ] ; then
+    echo "$program is not installed. Please install $program on your system."
+fi
+
+program="python"
+condition=$(which $program 2>/dev/null | grep -v "not found" | wc -l)
+if [ $condition -eq 0 ] ; then
+    echo "$program is not installed. Please install $program on your system."
+fi
+
+
 echo
 echo
 echo "Welcome to GitSubmit Command Line Interface "
@@ -68,6 +82,9 @@ else
         echo '^ Copy the key above in your GitLab settings to authorise your username'
         # Call python script to copy the ssh key generated to server
         chmod u+x /c/Users/S525729/Google\ Drive/Semester-3/GDP-1/gitsubmit_cli/Tests/bashTesting/hello.py
-    python /c/Users/S525729/Google\ Drive/Semester-3/GDP-1/gitsubmit_cli/Tests/bashTesting/hello.py
+		python /c/Users/S525729/Google\ Drive/Semester-3/GDP-1/gitsubmit_cli/Tests/bashTesting/hello.py
+		
+		cd /c/Users/S525729/cloneTest/
+        git clone git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git
 fi;
 fi;
