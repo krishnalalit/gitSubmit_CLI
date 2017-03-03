@@ -64,6 +64,7 @@ else
         read -p "Enter the topic of the repository to be cloned: " topic
         #result=`python ~/gitLabCLI/cloning.py "$subject" "$topic"`
         # read -p "Enter the path, where you would like to clone your repository: " path
+		find /etc/apt/ -name *.list | xargs cat | grep  ^[[:space:]]*deb # to check if repo exists on the system
         cd /c/Users/S525729/cloneTest/
         git clone git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git
 
