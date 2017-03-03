@@ -7,7 +7,7 @@ echo "Welcome to GitSubmit Command Line Interface "
 
 echo "Please wait while we check for existing keys, for authentication"
       echo
-      cd /c/Users/S52572/.ssh/
+      cd /c/Users/S525729/.ssh/
       echo "The following keys were found"
       file * | grep RSA
       found="$(file * | grep RSA | wc -l)"
@@ -15,11 +15,15 @@ echo "Please wait while we check for existing keys, for authentication"
       echo
 
 if [[ "$found" == "0" ]]; then
+	read -p "Enter the name you would like to set up " ufname
+	git config --global user.name "$ufname"
+	read -p "Enter the email id to be associated with gitlab account" email
+	git config --global user.email "$email"
     echo 'Enter your GitLab username: '
     read u
     echo 'Enter your GitLab password: '
     read -s p
-
+	
     echo 'Generating GitLab authentication key ...'
     ssh-keygen -t rsa -b 4096 -C "$u" -P "" -f '/c/Users/S525729/.ssh/gitLabCLIKeys'
 
