@@ -43,7 +43,7 @@ if [[ "$found" == "0" ]]; then
     ssh-keygen -t rsa -b 4096 -C "$u" -P "" -f 'gitLabCLIKeys'
 
     echo 'Authorising key for use with GitLab ...'
-    CFG='\nHost gitlab.com\n  HostName gitlab.com\n  User git\n  IdentityFile ~/.ssh/gitLabCLIKeys'
+    CFG='\nHost gitlab.com\n  HostName gitlab.com\n  User "$u"\n  IdentityFile ~/.ssh/gitLabCLIKeys'
     echo -e $CFG >>~/.ssh/config
     chmod 400 ~/.ssh/gitLabCLIKeys
 
@@ -53,8 +53,7 @@ if [[ "$found" == "0" ]]; then
     	echo '^ Copy the key above in your GitLab settings to authorise your username'
 	# Call python script to copy the ssh key generated to server
         chmod u+x ~/Desktop/gitsubmit_cli/Tests/bashTesting/hello.py
-	python ~/Desktop/gitsubmit_cli/Tests/bashTesting/hello.py
-
+	python ~/Desktop/gitsubmit_cli/Tests/bashTesting/hello.py 
 else
     read -p "Would you like to use the existing keys for authentication (yes or no) ? : " response
     if [[ "$response" == "yes" ]]; then
@@ -67,7 +66,7 @@ else
         read -p "Enter the path, where you would like to clone your repository: " path
 	#find /etc/apt/ -name *.list | xargs cat | grep  ^[[:space:]]*deb # to check if repo exists on the system
         cd "$path"
-        git clone git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git
+	GIT_SSH_COMMAND="ssh -i ~/.ssh/gitLabCLIKeys -F /dev/null" git clone git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git
 
     else
         echo 'Generating GitLab authentication key ...'
@@ -75,7 +74,7 @@ else
         ssh-keygen -t rsa -b 4096 -C "$u" -P "" -f 'gitLabCLIKeys'
 
         echo 'Authorising key for use with GitLab ...'
-        CFG='\nHost gitlab.com\n  HostName gitlab.com\n  User git\n  IdentityFile ~/.ssh/gitLabCLIKeys'
+        CFG='\nHost gitlab.com\n  HostName gitlab.com\n  User "$u"\n  IdentityFile ~/.ssh/gitLabCLIKeys'
         echo -e $CFG >> ~/.ssh/config
         chmod 400 ~/.ssh/gitLabCLIKeys
 
@@ -88,6 +87,6 @@ else
 	python ~/Desktop/gitsubmit_cli/Tests/bashTesting/hello.py
 	read -p "Enter the path, where you would like to clone your repository: " path
 	cd "$path"
-        git clone git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git
+	GIT_SSH_COMMAND="ssh -i ~/.ssh/gitLabCLIKeys -F /dev/null" git clone git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git
 fi;
 fi;
