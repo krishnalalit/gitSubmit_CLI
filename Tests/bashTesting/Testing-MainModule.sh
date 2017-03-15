@@ -66,7 +66,8 @@ else
         read -p "Enter the path, where you would like to clone your repository: " path
 	#find /etc/apt/ -name *.list | xargs cat | grep  ^[[:space:]]*deb # to check if repo exists on the system
         cd "$path"
-	GIT_SSH_COMMAND="ssh -i ~/.ssh/gitLabCLIKeys -F /dev/null" git clone git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git
+	#GIT_SSH_COMMAND="ssh -i ~/.ssh/gitLabCLIKeys -F /dev/null" git clone git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git
+	ssh-agent sh -c "ssh-add ~/.ssh//gitLabCLIKeys; git fetch git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git" 
 
     else
         echo 'Generating GitLab authentication key ...'
@@ -87,6 +88,7 @@ else
 	python ~/Desktop/gitsubmit_cli/Tests/bashTesting/hello.py
 	read -p "Enter the path, where you would like to clone your repository: " path
 	cd "$path"
-	GIT_SSH_COMMAND="ssh -i ~/.ssh/gitLabCLIKeys -F /dev/null" git clone git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git
+	#GIT_SSH_COMMAND="ssh -i ~/.ssh/gitLabCLIKeys -F /dev/null" git clone git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git
+	ssh-agent sh -c "ssh-add ~/.ssh//gitLabCLIKeys; git fetch git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git" 
 fi;
 fi;
