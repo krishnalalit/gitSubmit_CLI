@@ -52,8 +52,8 @@ if [[ "$found" == "0" ]]; then
     	cat ~/.ssh/gitLabCLIKeys.pub
     	echo '^ Copy the key above in your GitLab settings to authorise your username'
 	# Call python script to copy the ssh key generated to server
-        chmod u+x ~/Desktop/gitsubmit_cli/Tests/bashTesting/hello.py
-	python ~/Desktop/gitsubmit_cli/Tests/bashTesting/hello.py 
+        chmod u+x ~/Desktop/BitBucket-GDP/gitsubmit_cli/pythonSamplePrograms/ssh1.py
+	python ~/Desktop/BitBucket-GDP/gitsubmit_cli/pythonSamplePrograms/ssh1.py 
 else
     read -p "Would you like to use the existing keys for authentication (yes or no) ? : " response
     if [[ "$response" == "yes" ]]; then
@@ -67,7 +67,7 @@ else
 	#find /etc/apt/ -name *.list | xargs cat | grep  ^[[:space:]]*deb # to check if repo exists on the system
         cd "$path"
 	#GIT_SSH_COMMAND="ssh -i ~/.ssh/gitLabCLIKeys -F /dev/null" git clone git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git
-	ssh-agent sh -c "ssh-add ~/.ssh//gitLabCLIKeys; git fetch git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git" 
+	ssh-agent sh -c "ssh-add ~/.ssh//gitLabCLIKeys; git clone git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git" 
 
     else
         echo 'Generating GitLab authentication key ...'
@@ -84,11 +84,11 @@ else
         cat ~/.ssh/gitLabCLIKeys.pub
         echo '^ Copy the key above in your GitLab settings to authorise your username'
         # Call python script to copy the ssh key generated to server
-        chmod u+x ~/Desktop/gitsubmit_cli/Tests/bashTesting/hello.py
-	python ~/Desktop/gitsubmit_cli/Tests/bashTesting/hello.py
+        chmod u+x ~/Desktop/BitBucket-GDP/gitsubmit_cli/pythonSamplePrograms/gettingUrlFromServer.py
+	python ~/Desktop/BitBucket-GDP/gitsubmit_cli/pythonSamplePrograms/gettingUrlFromServer.py
 	read -p "Enter the path, where you would like to clone your repository: " path
 	cd "$path"
 	#GIT_SSH_COMMAND="ssh -i ~/.ssh/gitLabCLIKeys -F /dev/null" git clone git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git
-	ssh-agent sh -c "ssh-add ~/.ssh//gitLabCLIKeys; git fetch git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git" 
+	ssh-agent sh -c "ssh-add ~/.ssh//gitLabCLIKeys; git clone git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git" 
 fi;
 fi;
