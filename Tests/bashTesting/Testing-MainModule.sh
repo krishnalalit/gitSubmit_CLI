@@ -40,7 +40,7 @@ if [[ "$found" == "0" ]]; then
 	
     echo 'Generating GitLab authentication key ...'
     cd ~/.ssh/
-    ssh-keygen -t rsa -b 4096 -C "$u" -P "" -f 'gitLabCLIKeys'
+    ssh-keygen -t rsa -b 4096 -C '$u' -P "" -f 'gitLabCLIKeys'
 
     echo 'Authorising key for use with GitLab ...'
     CFG='\nHost gitlab.com\n  HostName gitlab.com\n  User "$u"\n  IdentityFile ~/.ssh/gitLabCLIKeys'
@@ -72,7 +72,7 @@ else
     else
         echo 'Generating GitLab authentication key ...'
 	cd ~/.ssh/
-        ssh-keygen -t rsa -b 4096 -C "$u" -P "" -f 'gitLabCLIKeys'
+        ssh-keygen -t rsa -b 4096 -C '$u' -P "" -f 'gitLabCLIKeys'
 
         echo 'Authorising key for use with GitLab ...'
         CFG='\nHost gitlab.com\n  HostName gitlab.com\n  User "$u"\n  IdentityFile ~/.ssh/gitLabCLIKeys'
