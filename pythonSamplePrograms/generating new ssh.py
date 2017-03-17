@@ -28,6 +28,6 @@ gl = gitlab.Gitlab.from_config(config_files=['C:\Program Files\Git\.ssh\config']
 gl.auth()
 
 #getting the current user with the below function 
-current_user = gl.user
+current_user = gl.user_id
 
 #creating the ssh key for the current user into the  gitlab
