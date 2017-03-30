@@ -1,0 +1,15 @@
+  File "/home/lalit/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/sshAndUrl.py", line 3
+    import gitlab look top
+                     ^
+SyntaxError: invalid syntax
+
+
+
+
+  File "/home/lalit/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/getProjects.py", line 17
+    print(project.web_url)
+        ^
+IndentationError: expected an indented block
+
+
+Take care of these .....run the files on your system first, we will see in the class how they run on your system.
