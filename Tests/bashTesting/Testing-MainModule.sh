@@ -71,7 +71,9 @@ else
 	#find /etc/apt/ -name *.list | xargs cat | grep  ^[[:space:]]*deb # to check if repo exists on the system
         cd ~/Desktop/GitLabRepo/
 	#GIT_SSH_COMMAND="ssh -i ~/.ssh/gitLabCLIKeys -F /dev/null" git clone git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git
-	ssh-agent sh -c "ssh-add ~/Desktop/GitLabRepo/gitLabCLIKeys; git clone $result"
+	#ssh-agent sh -c "ssh-add ~/Desktop/GitLabRepo/gitLabCLIKeys; git clone $result"
+	chmod u+x ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/getProjects.py
+        python ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/getProjects.py 
 
     else
         echo 'Generating GitLab authentication key ...'
@@ -86,15 +88,20 @@ else
         echo 'Finished configuring keys ... '
 
         cat ~/.ssh/gitLabCLIKeys.pub
-        echo '^ Copy the key above in your GitLab settings to authorise your username'
+        echo "Copying the ssh key to your gitlab account..........."
         # Call python script to copy the ssh key generated to server
         chmod u+x ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/sshAndUrl.py
         python ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/sshAndUrl.py
 	echo "Your repository will be cloned to the following path: ~/Desktop/GitLabRepo/"
 	cd ~/Desktop/GitLabRepo/
-	chmod u+x ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/getProjects.py
-        result='python ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/getProjects.py'
+	echo
+        echo "Initiating Clone process of your repository........."
+	echo
+	#result='python ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/getProjects.py'
 	#GIT_SSH_COMMAND="ssh -i ~/.ssh/gitLabCLIKeys -F /dev/null" git clone git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git
-	ssh-agent sh -c "ssh-add ~/Desktop/GitLabRepo/gitLabCLIKeys; git clone $result" 
+	#ssh-agent sh -c "ssh-add ~/Desktop/GitLabRepo/gitLabCLIKeys; git clone $result" 
+        chmod u+x ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/getProjects.py
+        python ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/getProjects.py 
+	
 fi;
 fi;
