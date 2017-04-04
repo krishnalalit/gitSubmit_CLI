@@ -22,7 +22,7 @@ echo "Welcome to GitSubmit Command Line Interface "
 
 echo "Please wait while we check for existing keys, for authentication"
       echo
-      cd ~/.ssh/
+      cd ~/Desktop/GitLabRepo/
       echo "The following keys were found"
       file * | grep RSA
       found="$(file * | grep RSA | wc -l)"
@@ -67,9 +67,9 @@ else
         read -p "Enter the topic of the repository to be cloned: " topic
 	chmod u+x ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/getProjects.py
         result='python ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/getProjects.py'
-        read -p "Enter the path, where you would like to clone your repository: " path
+        echo "Your repository will be cloned to the following path: ~/Desktop/GitLabRepo/"
 	#find /etc/apt/ -name *.list | xargs cat | grep  ^[[:space:]]*deb # to check if repo exists on the system
-        cd "$path"
+        cd ~/Desktop/GitLabRepo/
 	#GIT_SSH_COMMAND="ssh -i ~/.ssh/gitLabCLIKeys -F /dev/null" git clone git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git
 	ssh-agent sh -c "ssh-add ~/Desktop/GitLabRepo/gitLabCLIKeys; git clone $result"
 
