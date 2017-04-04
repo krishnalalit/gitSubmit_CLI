@@ -40,7 +40,9 @@ if [[ "$found" == "0" ]]; then
     read -s p
 	
     echo 'Generating GitLab authentication key ...'
-    cd ~/.ssh/
+    cd ~/Desktop/
+    mkdir GitLabRepo
+    cd ~/Desktop/GitLabRepo/
     ssh-keygen -t rsa -b 4096 -C '$u' -P "" -f 'gitLabCLIKeys'
 
     echo 'Authorising key for use with GitLab ...'
@@ -69,11 +71,11 @@ else
 	#find /etc/apt/ -name *.list | xargs cat | grep  ^[[:space:]]*deb # to check if repo exists on the system
         cd "$path"
 	#GIT_SSH_COMMAND="ssh -i ~/.ssh/gitLabCLIKeys -F /dev/null" git clone git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git
-	ssh-agent sh -c "ssh-add ~/.ssh/gitLabCLIKeys; cd $path | git clone $result"
+	ssh-agent sh -c "ssh-add ~/Desktop/GitLabRepo/gitLabCLIKeys; git clone $result"
 
     else
         echo 'Generating GitLab authentication key ...'
-	cd ~/.ssh/
+	cd ~/Desktop/GitLabRepo/
         ssh-keygen -t rsa -b 4096 -C '$u' -P "" -f 'gitLabCLIKeys'
 
         echo 'Authorising key for use with GitLab ...'
@@ -88,11 +90,11 @@ else
         # Call python script to copy the ssh key generated to server
         chmod u+x ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/sshAndUrl.py
         python ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/sshAndUrl.py
-	read -p "Enter the path, where you would like to clone your repository: " path
-	cd "$path"
+	echo "Your repository will be cloned to the following path: ~/Desktop/GitLabRepo/"
+	cd ~/Desktop/GitLabRepo/
 	chmod u+x ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/getProjects.py
         result='python ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/getProjects.py'
 	#GIT_SSH_COMMAND="ssh -i ~/.ssh/gitLabCLIKeys -F /dev/null" git clone git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git
-	ssh-agent sh -c "ssh-add ~/.ssh/gitLabCLIKeys; cd $path |  git clone $result" 
+	ssh-agent sh -c "ssh-add ~/Desktop/GitLabRepo/gitLabCLIKeys; git clone $result" 
 fi;
 fi;
