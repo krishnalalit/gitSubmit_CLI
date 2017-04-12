@@ -1,7 +1,7 @@
 from __future__ import print_function
 import struct
 import binascii
-#from gitlab import Gitlab, CurrentUserKey
+from gitlab import Gitlab, CurrentUserKey
 from Crypto.PublicKey import RSA
 from Crypto.Util.number import long_to_bytes
 from Crypto.Util.py3compat import bord, bchr
