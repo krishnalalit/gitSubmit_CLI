@@ -10,7 +10,11 @@ gl.auth()
 
 
 k = gl.user_keys.create({'title': 'my_key',
+<<<<<<< HEAD
                          'key': open('~/Desktop/GitLabRepo/gitLabCLIKeys.pub').read()},
+=======
+                         'key': open(sys.argv[1]).read()},
+>>>>>>> master
                         user_id=1)
 
 print(k)
