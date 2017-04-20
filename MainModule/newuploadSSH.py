@@ -5,12 +5,22 @@ import sys
 
 #gitlab connection using token
 gl = gitlab.Gitlab('http://csgrad06.nwmissouri.edu', 'Tpxir43wuUTVyLq_ezZA')
-
 gl.auth()
-
-
+val = sys.argv[1:][0].strip()
 k = gl.user_keys.create({'title': 'my_key',
+<<<<<<< HEAD
                          'key': open(sys.argv[1]).read()},
+=======
+<<<<<<< HEAD
+                         'key': val},
+=======
+<<<<<<< HEAD
+                         'key': open('~/Desktop/GitLabRepo/gitLabCLIKeys.pub').read()},
+=======
+                         'key': open(sys.argv[1]).read()},
+>>>>>>> master
+>>>>>>> master
+>>>>>>> master
                         user_id=1)
 
 print(k)
