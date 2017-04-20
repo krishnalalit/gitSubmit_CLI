@@ -31,11 +31,11 @@
   [ "$status" -eq 0 ]
 }
 
-# This checks that the script prints out a single line, without
+# This checks that the script prints out 17 lines, without
 # worrying about what is on that line.
-@test "The script prints out one line of text" {
+@test "The script prints out 17 lines of text" {
   run ~/Desktop/BitBucket-GDP/gitsubmit_cli/Tests/bashTesting/AutoTestingBats/MainModule-bash.sh
-  [ "${#lines[@]}" -eq 1 ]
+  [ "${#lines[@]}" -eq 17 ]
 }
 
 ANSWER_REGEX="^There were [[:digit:]]+ successes and [[:digit:]]+ failures.$"
