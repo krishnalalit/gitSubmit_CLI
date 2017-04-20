@@ -10,7 +10,7 @@ gl.auth()
 
 
 k = gl.user_keys.create({'title': 'my_key',
-                         'key': open('/usr/local/share/ubuntu/.ssh/ssh_git.pub').read()},
+                         'key': open(sys.argv[1]).read()},
                         user_id=1)
 
 print(k)
