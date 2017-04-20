@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import gitlab
 import sys 
 # gitlab connection using username password
