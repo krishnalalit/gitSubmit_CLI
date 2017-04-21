@@ -79,7 +79,7 @@ echo "Please wait while we check for existing keys, for authentication"
         python ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/updatedgetprojects.py
         URL="$(cat /tmp/repoReturn.txt)"
 	#URL=cat /tmp/repoReturn.txt | 
-        git clone "$URL"  
+        GIT_SSH_COMMAND="ssh -i ~/Desktop/GitLabRepo/gitLabCLIKeys -F /dev/null" git clone git@csgrad06.nwmissouri.edu:root/Lalit-cli.git  
 	
 
  
@@ -101,7 +101,7 @@ else
         chmod u+x ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/updatedgetproject$
         python ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/updatedgetprojects.py
         URL="$(cat /tmp/repoReturn.txt)"
-        git clone "$URL"  
+        GIT_SSH_COMMAND="ssh -i ~/Desktop/GitLabRepo/gitLabCLIKeys -F /dev/null" git clone git@csgrad06.nwmissouri.edu:root/Lalit-cli.git  
 
 
     else
@@ -131,6 +131,6 @@ else
         chmod u+x ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/updatedgetprojects.py
         python ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/updatedgetprojects.py
 	URL="$(cat /tmp/repoReturn.txt)"
-	git clone "$URL"	
+	GIT_SSH_COMMAND="ssh -i ~/Desktop/GitLabRepo/gitLabCLIKeys -F /dev/null" git clone git@csgrad06.nwmissouri.edu:root/Lalit-cli.git
 fi;
 fi;
