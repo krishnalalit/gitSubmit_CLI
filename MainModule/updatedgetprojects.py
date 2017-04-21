@@ -23,6 +23,6 @@ query = input('enter any of the above project username/name \n')
 project = projects[int(query)];
 print(project.web_url)
 
-file = open((project.path_with_namespace.split('/')[1])+".txt","a+") 
+file = open("/tmp/repoReturn.txt","w")
 file.write(project.web_url)
 file.close()

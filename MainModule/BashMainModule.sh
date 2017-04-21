@@ -61,29 +61,48 @@ echo "Please wait while we check for existing keys, for authentication"
     echo 'Finished configuring keys ... '
     cat ~/.ssh/gitLabCLIKeys.pub
     echo "Copying the key above to your GitLab settings to authorise your username"
-	# Call python script to copy the ssh key generated to server
-        chmod u+x ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/newuploadssh.py
-	python ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/newuploadssh.py 
 
+    # Call python script to copy the ssh key generated to server
+    chmod u+x ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/newuploadssh.py
+    python ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/newuploadssh.py ~/Desktop/GitLabRepo/gitLabCLIKeys.pub
 
+	
+    # Initiate Clone process
+    echo "Your repository will be cloned to the following path: ~/Desktop/GitLabRepo/"
+    cd ~/Desktop/GitLabRepo/
+    echo
+    echo "Initiating Clone process of your repository........."
+    echo
+    #GIT_SSH_COMMAND="ssh -i ~/.ssh/gitLabCLIKeys -F /dev/null" git clone git@cs$
+    #ssh-agent sh -c "ssh-add ~/Desktop/GitLabRepo/gitLabCLIKeys; git clone $res$
+        chmod u+x ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/updatedgetprojects.py
+        python ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/updatedgetprojects.py
+        URL="$(cat /tmp/repoReturn.txt)"
+	#URL=cat /tmp/repoReturn.txt | 
+        git clone "$URL"  
+	
+
+ 
 else
     read -p "Would you like to use the existing keys for authentication (yes or no) ? : " response
     if [[ "$response" == "yes" ]]; then
         echo " Thank you. We will proceed with authentcation using the existing keys"
         echo
         # This is where the python script to clone and search would be used
-        read -p "Enter the subject your repository belongs to: " subject
-        read -p "Enter the topic of the repository to be cloned: " topic
-	chmod u+x ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/getProjects.py
-        #result='python ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/getProjects.py'
-        echo
-	echo "Your repository will be cloned to the following path: ~/Desktop/GitLabRepo/"
-	#find /etc/apt/ -name *.list | xargs cat | grep  ^[[:space:]]*deb # to check if repo exists on the system
+        chmod u+x ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/newuploadssh.py
+        python ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/newuploadssh.py ~/Desktop/GitLabRepo/gitLabCLIKeys.pub
+        echo "Your repository will be cloned to the following path: ~/Desktop/GitLabRepo/"
         cd ~/Desktop/GitLabRepo/
-	#GIT_SSH_COMMAND="ssh -i ~/.ssh/gitLabCLIKeys -F /dev/null" git clone git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git
-	#ssh-agent sh -c "ssh-add ~/Desktop/GitLabRepo/gitLabCLIKeys; git clone $result"
-	chmod u+x ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/updatedgetprojects.py
-        python ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/updatedgetprojects.py 
+        echo
+        echo "Initiating Clone process of your repository........."
+        echo
+        #GIT_SSH_COMMAND="ssh -i ~/.ssh/gitLabCLIKeys -F /dev/null" git clone git@cs$
+        #ssh-agent sh -c "ssh-add ~/Desktop/GitLabRepo/gitLabCLIKeys; git clone $res$
+        chmod u+x ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/updatedgetproject$
+        python ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/updatedgetprojects.py
+        URL="$(cat /tmp/repoReturn.txt)"
+        git clone "$URL"  
+
 
     else
         echo 'Generating GitLab authentication key ...'
@@ -101,17 +120,17 @@ else
         echo "Copying the ssh key to your gitlab account..........."
         # Call python script to copy the ssh key generated to server
         chmod u+x ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/newuploadssh.py
-        python ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/newuploadssh.py
+	python ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/newuploadssh.py ~/Desktop/GitLabRepo/gitLabCLIKeys.pub
 	echo "Your repository will be cloned to the following path: ~/Desktop/GitLabRepo/"
 	cd ~/Desktop/GitLabRepo/
 	echo
         echo "Initiating Clone process of your repository........."
 	echo
-	#result='python ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/getProjects.py'
 	#GIT_SSH_COMMAND="ssh -i ~/.ssh/gitLabCLIKeys -F /dev/null" git clone git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git
 	#ssh-agent sh -c "ssh-add ~/Desktop/GitLabRepo/gitLabCLIKeys; git clone $result" 
         chmod u+x ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/updatedgetprojects.py
-        python ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/updatedgetprojects.py 
-	
+        python ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/updatedgetprojects.py
+	URL="$(cat /tmp/repoReturn.txt)"
+	git clone "$URL"	
 fi;
 fi;

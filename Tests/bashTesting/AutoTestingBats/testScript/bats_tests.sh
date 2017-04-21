@@ -71,10 +71,3 @@ FAILURE_REGEX="^There were [[:digit:]]+ successes and 22 failures.$"
   [[ $output == "There were 78 successes and 22 failures." ]]
 }
 
-OTHER_TARGET_REGEX="^There were 76 successes and 24 failures.$"
-
-# Checks that the script also works for 'second_file_set.tgz'.
-@test "Script prints the correct output for 'second_file_set.tgz'" {
-  run ./MainModuleTestVariant.sh test_data/second_file_set.tgz
-  [[ $output == "There were 76 successes and 24 failures." ]]
-}
