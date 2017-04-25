@@ -19,13 +19,7 @@ if [ $condition -eq 0 ] ; then
     echo "$program is not installed. Please install $program on your system."
 fi
 
-program="python-pip"
-condition=$(which $program 2>/dev/null | grep -v "not found" | wc -l)
-if [ $condition -eq 0 ] ; then
-    echo "$program is not installed. Please install $program on your system."
-fi
-
-program="python-gitlab"
+program="pip"
 condition=$(which $program 2>/dev/null | grep -v "not found" | wc -l)
 if [ $condition -eq 0 ] ; then
     echo "$program is not installed. Please install $program on your system."
@@ -78,9 +72,10 @@ function repoClone(){
 
 function urlConverter(){
 
-    USER=`echo $URL | sed -Ene's#http://csgrad06.nwmissouri.edu/([^/]*)/(.*).git#\1#p'`
+    USER=`echo $URL | sed -Ene's#http://csgrad06.nwmissouri.edu/(.*)/(.*).git#\1#p'`
     #http://csgrad06.nwmissouri.edu/S525729/Lalit-cli-test.git
-    REPO=`echo $URL | sed -Ene's#http://csgrad06.nwmissouri.edu/([^/]*)/(.*).git#\2#p'`
+    #http://csgrad06.nwmissouri.edu/root/Lalit-cli.git
+    REPO=`echo $URL | sed -Ene's#http://csgrad06.nwmissouri.edu/(.*)/(.*).git#\2#p'`
     #git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git
     NEW_URL="git@csgrad06.nwmissouri.edu:$USER/$REPO.git"
 
