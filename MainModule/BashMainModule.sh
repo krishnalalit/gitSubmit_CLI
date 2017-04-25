@@ -58,8 +58,17 @@ function repoClone(){
     	chmod u+x ~/Desktop/gitsubmit_cli/MainModule/updatedgetprojects.py
     	python ~/Desktop/gitsubmit_cli/MainModule/updatedgetprojects.py
     	URL="$(cat /tmp/repoReturn.txt)"
-	#URL=cat /tmp/repoReturn.txt | 
-    	GIT_SSH_COMMAND="ssh -i ~/Desktop/GitLabRepo/gitLabCLIKeys -F /dev/null" git clone "$URL"
+      urlConverter;
+	    #URL=cat /tmp/repoReturn.txt |
+    	GIT_SSH_COMMAND="ssh -i ~/Desktop/GitLabRepo/gitLabCLIKeys -F /dev/null" git clone "$NEW_URL"
+
+}
+
+function urlConverter(){
+
+    USER=`echo $URL | sed -Ene's#https://github.com/([^/]*)/(.*).git#\1#p'`
+    REPO=`echo $URL | sed -Ene's#https://github.com/([^/]*)/(.*).git#\2#p'`
+    NEW_URL="git@github.com:$USER/$REPO.git"
 
 }
 
@@ -88,7 +97,7 @@ echo "Please wait while we check for existing keys, for authentication"
 		keyGen;
 		repoClone;
 
- 
+
      else
     	read -p "Would you like to use the existing keys for authentication (yes or no) ? : " response
     	if [[ "$response" == "yes" ]]; then
