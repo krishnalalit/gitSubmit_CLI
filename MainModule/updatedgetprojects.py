@@ -4,7 +4,7 @@ import gitlab
 import sys
 
 #gitlab connection using token
-gl = gitlab.Gitlab('http://csgrad06.nwmissouri.edu', '1hapfzyfFiDqsnwzxtzJ')
+gl = gitlab.Gitlab('http://csgrad06.nwmissouri.edu', 'z_5Z9VzJNyChUsbc13xM')
 
 gl.auth()
 

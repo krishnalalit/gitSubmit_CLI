@@ -3,10 +3,10 @@
 import gitlab
 import sys
 # gitlab connection using username password
-#gl = gitlab.Gitlab('https://gitlab.com', email='sushmagsar@gmail.com', password='Bunny$20945')
+#gl = gitlab.Gitlab('https://gitlab.com', email='', password='')
 
 #gitlab connection using token
-gl = gitlab.Gitlab('http://csgrad06.nwmissouri.edu', 'Tpxir43wuUTVyLq_ezZA')
+gl = gitlab.Gitlab('http://csgrad06.nwmissouri.edu', 'z_5Z9VzJNyChUsbc13xM')
 gl.auth()
 print(sys.argv)
 val = sys.argv[1:][0].strip()
