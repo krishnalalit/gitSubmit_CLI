@@ -12,6 +12,10 @@ This application uses Python framework and its dependencies to function.
 
 This [link](https://bitbucket.org/gitsubmitsuite/gitsubmit_cli/wiki/Home) describes in great detail on setting up python environment.
 
+It also uses [Python Wrapper](https://pypi.python.org/pypi/python-gitlab) for GitLab API to provide interaction with the GitLab server of our organization.
+
+It uses [BASH](https://www.gnu.org/software/bash/manual/html_node/Installing-Bash.html) built into the Linux system by default.
+
 
 ### License ###
 
