@@ -66,7 +66,7 @@ function repoClone(){
     	URL="$(cat /tmp/repoReturn.txt)"
       urlConverter;
 	    #URL=cat /tmp/repoReturn.txt |
-    	GIT_SSH_COMMAND="ssh -i ~/Desktop/GitLabRepo/gitLabCLIKeys -F /dev/null" git clone git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git
+    	GIT_SSH_COMMAND="ssh -i ~/Desktop/GitLabRepo/gitLabCLIKeys -F /dev/null" git clone "$NEW_URL"
 
 }
 
