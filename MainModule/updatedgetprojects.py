@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 
 import gitlab
-import sys 
+import sys
 
 #gitlab connection using token
-gl = gitlab.Gitlab('http://csgrad06.nwmissouri.edu', '1hapfzyfFiDqsnwzxtzJ')
+gl = gitlab.Gitlab('http://csgrad06.nwmissouri.edu', '6tag-c1zDkAq3x1K9rnr')
 
 gl.auth()
 
