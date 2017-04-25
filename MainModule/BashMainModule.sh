@@ -39,8 +39,8 @@ function keyGen(){
 	echo "Copying the above key to your GitLab account for authorization ..... "
 
 	# Call python script to copy the ssh key generated to server
-	chmod u+x ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/newuploadssh.py
-	python ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/newuploadssh.py ~/Desktop/GitLabRepo/gitLabCLIKeys.pub
+	chmod u+x ~/Desktop/gitsubmit_cli/MainModule/newuploadssh.py
+	python ~/Desktop/gitsubmit_cli/MainModule/newuploadssh.py ~/Desktop/GitLabRepo/gitLabCLIKeys.pub
 
 }
 
@@ -55,8 +55,8 @@ function repoClone(){
     	echo
     	#GIT_SSH_COMMAND="ssh -i ~/.ssh/gitLabCLIKeys -F /dev/null" git clone git@cs
     	#ssh-agent sh -c "ssh-add ~/Desktop/GitLabRepo/gitLabCLIKeys; git clone $res
-    	chmod u+x ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/updatedgetprojects.py
-    	python ~/Desktop/BitBucket-GDP/gitsubmit_cli/MainModule/updatedgetprojects.py
+    	chmod u+x ~/Desktop/gitsubmit_cli/MainModule/updatedgetprojects.py
+    	python ~/Desktop/gitsubmit_cli/MainModule/updatedgetprojects.py
     	URL="$(cat /tmp/repoReturn.txt)"
 	#URL=cat /tmp/repoReturn.txt | 
     	GIT_SSH_COMMAND="ssh -i ~/Desktop/GitLabRepo/gitLabCLIKeys -F /dev/null" git clone "$URL"
