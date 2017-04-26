@@ -64,23 +64,14 @@ function repoClone(){
     	chmod u+x ~/Desktop/gitsubmit_cli/MainModule/updatedgetprojects.py
     	python ~/Desktop/gitsubmit_cli/MainModule/updatedgetprojects.py
     	URL="$(cat /tmp/repoReturn.txt)"
-      urlConverter;
-	    #URL=cat /tmp/repoReturn.txt |
+	echo "URL collected : $URL"
+	NEW_URL=`echo $URL | sed 's/http:\/\//git@/' | sed 's/\//:/'`
+	echo "http url converted to shh : $NEW_URL"
     	GIT_SSH_COMMAND="ssh -i ~/Desktop/GitLabRepo/gitLabCLIKeys -F /dev/null" git clone "$NEW_URL"
 
 }
 
-function urlConverter(){
 
-    USER=`echo $URL | sed -Ene's#http://csgrad06.nwmissouri.edu/root/(.*).git#\1#p'`
-    #http://csgrad06.nwmissouri.edu/S525729/Lalit-cli-test.git
-    #http://csgrad06.nwmissouri.edu/root/Lalit-cli.git
-    REPO=`echo $URL | sed -Ene's#http://csgrad06.nwmissouri.edu/root/(.*).git#\2#p'`
-    #git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git
-    #
-    NEW_URL="git@csgrad06.nwmissouri.edu:root/Lalit-cli.git"
-
-}
 
 echo
 echo
