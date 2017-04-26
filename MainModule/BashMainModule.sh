@@ -72,13 +72,13 @@ function repoClone(){
 
 function urlConverter(){
 
-    USER=`echo $URL | sed -Ene's#http://csgrad06.nwmissouri.edu/(.*)/(.*).git#\1#p'`
+    #USER=`echo $URL | sed -Ene's#http://csgrad06.nwmissouri.edu/root/(.*).git#\1#p'`
     #http://csgrad06.nwmissouri.edu/S525729/Lalit-cli-test.git
     #http://csgrad06.nwmissouri.edu/root/Lalit-cli.git
-    REPO=`echo $URL | sed -Ene's#http://csgrad06.nwmissouri.edu/(.*)/(.*).git#\2#p'`
+    #REPO=`echo $URL | sed -Ene's#http://csgrad06.nwmissouri.edu/root/(.*).git#\2#p'`
     #git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git
-    #git@csgrad06.nwmissouri.edu:root/Lalit-cli.git
-    NEW_URL="git@csgrad06.nwmissouri.edu:$USER/$REPO.git"
+    #
+    NEW_URL="git@csgrad06.nwmissouri.edu:root/Lalit-cli.git"
 
 }
 

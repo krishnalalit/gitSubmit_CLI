@@ -21,7 +21,7 @@ for project in projects_1:
 query = input('enter any of the above project username/name \n')
 
 project = projects[int(query)];
-print(project.web_url)
+#print(project.web_url)
 
 file = open("/tmp/repoReturn.txt","w")
 file.write(project.web_url)

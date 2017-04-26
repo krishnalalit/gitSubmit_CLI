@@ -13,4 +13,3 @@ val = sys.argv[1:][0].strip()
 k = gl.user_keys.create({'title': 'my_key',
                          'key': open(sys.argv[1]).read()},user_id=1)
 
-print(k)
