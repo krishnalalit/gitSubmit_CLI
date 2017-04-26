@@ -12,7 +12,7 @@ This application uses Python framework and its dependencies to function.
 
 This [link](https://bitbucket.org/gitsubmitsuite/gitsubmit_cli/wiki/Home) describes in great detail on setting up python environment.
 
-It also uses [pip](https://packaging.python.org/install_requirements_linux/) as another dependency for installation of other dependencies.
+It uses [pip](https://packaging.python.org/install_requirements_linux/) as another dependency for installation of other dependencies.
 
 It also uses [Python Wrapper](https://pypi.python.org/pypi/python-gitlab) for GitLab API to provide interaction with the GitLab server of our organization.
 Refer (GCLI#006 under issues section)
