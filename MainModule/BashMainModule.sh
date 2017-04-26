@@ -5,25 +5,25 @@ program="git"
 condition=$(which $program 2>/dev/null | grep -v "not found" | wc -l)
 if [ $condition -eq 0 ] ; then
     echo "$program is not installed. Please install $program on your system."
-fi
+fi;
 
 program="gitlab"
 condition=$(which $program 2>/dev/null | grep -v "not found" | wc -l)
 if [ $condition -eq 0 ] ; then
     echo "$program is not installed. Please install $program on your system."
-fi
+fi;
 
 program="python"
 condition=$(which $program 2>/dev/null | grep -v "not found" | wc -l)
 if [ $condition -eq 0 ] ; then
     echo "$program is not installed. Please install $program on your system."
-fi
+fi;
 
 program="pip"
 condition=$(which $program 2>/dev/null | grep -v "not found" | wc -l)
 if [ $condition -eq 0 ] ; then
     echo "$program is not installed. Please install $program on your system."
-fi
+fi;
 
 function keyGen(){
 
@@ -39,7 +39,7 @@ function keyGen(){
 	CFG='\nHost gitlab.com\n  HostName gitlab.com\n  User "$u"\n  IdentityFile ~/.ssh/gitLabCLIKeys'
 	echo -e $CFG >>~/.ssh/config
 	chmod 400 ~/Desktop/GitLabRepo/gitLabCLIKeys
-	cp ~/Desktop/GitLabRepo/{gitLabCLIKeys, gitLabCLIKeys.pub} ~/.ssh/
+	sudo cp ~/Desktop/GitLabRepo/{gitLabCLIKeys, gitLabCLIKeys.pub} ~/.ssh/
 	echo "Finished configuring keys ..... "
 	cat ~/.ssh/gitLabCLIKeys.pub
 	echo "Copying the above key to your GitLab account for authorization ..... "
@@ -72,10 +72,10 @@ function repoClone(){
 
 function urlConverter(){
 
-    #USER=`echo $URL | sed -Ene's#http://csgrad06.nwmissouri.edu/root/(.*).git#\1#p'`
+    USER=`echo $URL | sed -Ene's#http://csgrad06.nwmissouri.edu/root/(.*).git#\1#p'`
     #http://csgrad06.nwmissouri.edu/S525729/Lalit-cli-test.git
     #http://csgrad06.nwmissouri.edu/root/Lalit-cli.git
-    #REPO=`echo $URL | sed -Ene's#http://csgrad06.nwmissouri.edu/root/(.*).git#\2#p'`
+    REPO=`echo $URL | sed -Ene's#http://csgrad06.nwmissouri.edu/root/(.*).git#\2#p'`
     #git@csgrad06.nwmissouri.edu:S525729/Lalit-cli-test.git
     #
     NEW_URL="git@csgrad06.nwmissouri.edu:root/Lalit-cli.git"
